@@ -1,10 +1,10 @@
 node {
     def app
     stage('Clone repository') {
-        git 'https://github.com/jwpark-sungshin/fork_vs_vfork.git'
+        git 'https://github.com/lusnue/fork_vs_vfork.git'
     }
     stage('Build image') {
-        app = docker.build("pjbear/test")
+        app = docker.build("lusnue/test")
     }
     stage('Test image') {
         app.inside {
