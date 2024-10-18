@@ -12,7 +12,7 @@ node {
         }
     }
     stage('Push image') {
-        docker.withRegistry('https://registry.hub.docker.com', 'lusnue') {
+        docker.withRegistry('https://hub.docker.com/repository/docker/lusnue/test', 'lusnue') {
            app.push("${env.BUILD_NUMBER}")
            app.push("latest")
         }
