@@ -4,7 +4,7 @@ node {
         git 'https://github.com/jwpark-sungshin/fork_vs_vfork.git'
     }
     stage('Build image') {
-        app = docker.build("pjbear/test")
+        app = docker.build("chsl123/test")
     }
     stage('Test image') {
         app.inside {
@@ -12,7 +12,7 @@ node {
         }
     }
     stage('Push image') {
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+        docker.withRegistry('https://registry.hub.docker.com', 'chsl123') {
            app.push("${env.BUILD_NUMBER}")
            app.push("latest")
         }

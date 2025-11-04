@@ -39,11 +39,11 @@ int main(int argc, char **argv)
 		printf("memory allocation success\n");
 	}
 
-#if 1
+
 	for (i = 0; i < (data_size >> 3); i++) {
 		data[i] = i;
 	}
-#endif
+
 
 	clock_gettime(CLOCK_MONOTONIC, &start_time);
 
@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 			printf("Elased Time for vfork() with %luGB data: %lu ns\n", data_size_GB, get_timediff(&start_time, &end_time));
 			//printf("I'm parent pid=%d\n", getpid());
 		}
-	} else { // fork
+	} else { //fork
 		pid = fork();
 		if (pid < 0) {
 			printf("failed to create a new process\n");
